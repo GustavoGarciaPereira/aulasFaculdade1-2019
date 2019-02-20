@@ -1,0 +1,15 @@
+Computador
+
+| Caracteristicas
+| -> monitor
+| -> teclado
+| -> mouse
+| -> tamanho
+| -> peso
+
+| Comportamentos
+| -> liga 
+| -> desliga
+| -> processa
+| -> grava
+| -> lê
