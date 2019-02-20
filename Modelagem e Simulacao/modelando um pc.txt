@@ -1,4 +1,4 @@
-Computador
+1)Computador
 
 | Caracteristicas
 | -> monitor
@@ -13,3 +13,46 @@ Computador
 | -> processa
 | -> grava
 | -> lê
+
+2.1)Teclado
+| Caracteristicas
+| -> tipo
+| -> tamanho
+| -> formato
+| -> cor
+| -> comunição
+
+| Comportamentos
+| -> Escreve
+| -> Liga 
+| -> Pausar
+| -> Volume
+| -> Adiantar
+| -> Suspender
+| -> Desligar
+| -> Buscar
+
+==============================
+==============================
+
+2.2) Placa De Video
+| Caracteristicas
+| -> Processa imagem
+| -> Processa informação
+
+| Comportamentos
+| -> Processar imagem
+| -> Processar informação
+| -> 
+
+=============================
+=============================
+2.2) Placa Mãe
+| Caracteristicas
+| -> 
+| -> Processa informação
+
+| Comportamentos
+| ->  
+| ->
+| ->

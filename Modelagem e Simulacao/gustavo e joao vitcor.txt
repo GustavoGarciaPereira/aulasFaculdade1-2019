@@ -1,0 +1,47 @@
+2)Pla.Vídeo
+->Marca
+->VRAM
+->bits
+->Potencia
+->Versão
+
+Comportamentos
+->ray-tracing
+->renderizar
+->Processamento
+=====================
+=====================
+3)Pl.Mãe
+->Marca;
+->Socket;
+->Entradas;
+->Saida;
+->Blindagem;
+->PCI-e
+->Tipo
+->Barramento;
+
+Comportamentos
+->Comunicação -> hardware e periféricos com o barramento;
+->Conexão;
+->Dual-channel;
+->Processamento;
+
+
+2)Teclado
+| Caracteristicas
+| -> tipo
+| -> tamanho
+| -> formato
+| -> cor
+| -> comunição
+
+| Comportamentos
+| -> Escreve
+| -> Liga 
+| -> Pausar
+| -> Volume
+| -> Adiantar
+| -> Suspender
+| -> Desligar
+| -> Buscar
