@@ -1,0 +1,11 @@
+Pessoa
+
+| Caracteristicas
+| -> corpo
+| -> idade
+| -> peso
+
+| Comportamentos
+| -> bebe água
+| -> alimanta-se
+| -> estuda
