@@ -19,7 +19,6 @@ public class PlacaMae {
     boolean barramento;
     
     
-    
     public void Integracao() {
         
     }
@@ -29,7 +28,7 @@ public class PlacaMae {
     public void Dual_channel() {
         
     }
-    public void Comunicacao() {
-        
+    public void Comunicacao(boolean entrada) {
+        this.barramento = entrada;
     }
 }
