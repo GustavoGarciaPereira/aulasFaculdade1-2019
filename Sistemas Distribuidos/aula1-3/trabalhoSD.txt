@@ -1,0 +1,4 @@
+1 – Qual a diferença entre processos e threads?
+
+Processo é um tem 
+threads compartilhao uma região de memoria entre si
