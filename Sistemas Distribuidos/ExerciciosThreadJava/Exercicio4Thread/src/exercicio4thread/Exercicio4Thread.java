@@ -11,10 +11,10 @@ public class Exercicio4Thread {
       
       
         System.out.println("Quantas Threads você quer? ");
-        int p = entrada.nextInt();
+        int quantidadeDeThreads = entrada.nextInt();
         
         MinhaThread t;
-        for(int i=0; i<p; i++){
+        for(int i=0; i<quantidadeDeThreads; i++){
             t = new MinhaThread(i);
             t.start();
         }

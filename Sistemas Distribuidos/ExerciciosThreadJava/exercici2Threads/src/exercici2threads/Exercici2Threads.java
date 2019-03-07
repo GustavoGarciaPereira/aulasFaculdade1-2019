@@ -14,16 +14,14 @@ public class Exercici2Threads{
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws InterruptedException {
-        MinhaThread t1 = new MinhaThread("Primeira");
-        MinhaThread t2 = new MinhaThread("Segunda");
-        MinhaThread t3 = new MinhaThread("Terceira");
-        MinhaThread t4 = new MinhaThread("Querta");
+    public static void main(String[] args){
+        Contador t1 = new Contador("Primeira");
+        Contador t2 = new Contador("Segunda");
+        Contador t3 = new Contador("Terceira");
+        Contador t4 = new Contador("Querta");
         
         t1.start();
         t2.start();
-        
-        t1.join();
         t3.start();
         t4.start();
     }

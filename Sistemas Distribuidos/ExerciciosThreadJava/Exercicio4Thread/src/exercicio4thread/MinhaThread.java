@@ -18,7 +18,7 @@ public class MinhaThread extends Thread{
     Random gerador = new Random();
     
     public int i = 0;
-    public int n =0 ;
+    public int n = 0 ;
     public MinhaThread(int i){
         this.i = i;
         this.n = gerador.nextInt(100001);
@@ -29,8 +29,8 @@ public class MinhaThread extends Thread{
        try{
 
             for(int j = 0;j<=n;j++){
-                System.out.println("thread ["+i+"] criada n = "+ n);
-                if(j == n){
+                System.out.println("thread ["+this.i+"] criada n = "+ this.n);
+                if(j == this.n){
                     System.out.println("thread ["+i+"]  em espera" );
                     Thread.sleep(gerador.nextInt(6));
                 }

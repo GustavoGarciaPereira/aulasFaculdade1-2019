@@ -9,16 +9,16 @@ package exercici2threads;
  *
  * @author usrlab01
  */
-public class MinhaThread extends Thread{
+public class Contador extends Thread{
 
     private String nomeT;
     
-    public MinhaThread(String nomeT){
+    public Contador(String nomeT){
         this.nomeT = nomeT;
     }
     
     public void run(){
-        for(long i=0;i<100l;i++){
+        for(long i=0;i<10;i++){
             System.out.println(nomeT+" :count = "+i);
         
         }

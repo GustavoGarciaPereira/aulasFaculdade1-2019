@@ -15,11 +15,12 @@ public class questao1 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        ThreadMostraNome t1 = new ThreadMostraNome("gugu");
-        ThreadMostraNome t2 = new ThreadMostraNome("pereira");
-        
-        t1.start();
-        t2.start();
+        ThreadMostraNome t;
+      
+        for(int i=0;i<10;i++){
+            t = new ThreadMostraNome(i+"");
+            t.start();
+        }
     }
     
 }
