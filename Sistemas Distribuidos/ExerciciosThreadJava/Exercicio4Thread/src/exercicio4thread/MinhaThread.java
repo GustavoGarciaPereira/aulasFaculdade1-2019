@@ -21,7 +21,7 @@ public class MinhaThread extends Thread{
     public int n = 0 ;
     public MinhaThread(int i){
         this.i = i;
-        this.n = gerador.nextInt(100001);
+        this.n = gerador.nextInt(10);
     }
     
     
@@ -33,12 +33,13 @@ public class MinhaThread extends Thread{
                 if(j == this.n){
                     System.out.println("thread ["+i+"]  em espera" );
                     Thread.sleep(gerador.nextInt(6));
+                    System.out.println("thread ["+i+"]  saindo em espera" );
                 }
             }
         } catch (InterruptedException ex) {
             Logger.getLogger(MinhaThread.class.getName()).log(Level.SEVERE, null, ex);
         }
-            
+         System.out.println("thread ["+i+"]  finalizada" );   
     }
 }
 
