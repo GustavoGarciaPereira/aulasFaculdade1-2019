@@ -2,3 +2,7 @@
 
 Processo é um tem 
 threads compartilhao uma região de memoria entre si
+
+
+
+gugufodão
