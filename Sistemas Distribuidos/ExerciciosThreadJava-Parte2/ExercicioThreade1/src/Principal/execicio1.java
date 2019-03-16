@@ -13,20 +13,18 @@ import java.util.Random;
  * @author usrlab01
  */
 public class execicio1 {
-    public  void main(String[] args) {
-        inicializaThread();
-    }
-    public  void inicializaThread(){
-        MinhaThread t1 = new MinhaThread("Primeira", this);
-        MinhaThread t2 = new MinhaThread("Segunda", this);
-        MinhaThread t3 = new MinhaThread("Terceira", this);
-        MinhaThread t4 = new MinhaThread("Quarta", this);
+    public static void main(String[] args) {
+        MinhaThread t1 = new MinhaThread("Primeira");
+        MinhaThread t2 = new MinhaThread("Segunda");
+        MinhaThread t3 = new MinhaThread("Terceira");
+        MinhaThread t4 = new MinhaThread("Quarta");
         
         t1.start();
         t2.start();
         t3.start();
         t4.start();
     }
+    
     
     public boolean podeContinuar(){
         Random random = new Random();

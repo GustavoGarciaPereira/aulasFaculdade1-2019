@@ -20,34 +20,29 @@ public class MinhaThread extends Thread{
     Random random = new Random();
     String nome;
     int distancia = 0;
-    public MinhaThread(String nome, int distancia){
+    int qtd = 0;
+    public MinhaThread(String nome, int distancia, int qtd){
         this.nome = nome;
         this.distancia = distancia;
+        this.qtd = qtd;
     }
-    
-    
-//    public int calculo(){
-//        
-//    }
-    
-    
-    
-    
-    
-    
-    
     
     
     public void run(){
 //        int percorrer = this.distancia/calculo();
 //        System.out.println("percorrer "+calculo());
-        int i = 0;
-        while(i<= this.distancia){
-//            i += percorrer;
-           
-        }
+        int velocidade = random.nextInt(3)+12;
         
-        System.out.println("cavalo numero = "+nome+" @@@@@@@@@@@@@@@@@@@@@@@@@");
-    }
+        
+        
+        for(int i=0;i<this.distancia;i+=velocidade){
+            //System.out.println("Cavalo numero = "+this.nome);
+
+            //System.out.println("velo>>"+velocidade);
+            
+        }
+            System.out.println("ter "+this.nome);
+        
     
+    }
 }

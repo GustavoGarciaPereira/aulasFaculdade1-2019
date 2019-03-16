@@ -31,9 +31,13 @@ public class JavaApplication26 {
         int cavalos = entrada.nextInt();
         int i = 0;
         while(i<=cavalos){
-            t = new MinhaThread(""+i,1000);
-            i++;
-            t.start();
+            
+            t = new MinhaThread(""+i,100, cavalos);
+            
+                i++;
+                t.start();
+            
+            
         }
        
        
