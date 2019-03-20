@@ -13,7 +13,7 @@ public class Cliente {
     
     private int numItens;
     private int idCliente;
-
+    private int prioridade;
     /**
      * @return the numItens
      */
@@ -33,5 +33,13 @@ public class Cliente {
     }
     public int getIdCliente() {
         return idCliente;
+    }
+    
+    public int getProiridade(){
+        return prioridade;
+    }
+    
+    public void setProiridade(int prioridade){
+        this.prioridade = prioridade;
     }
 }
