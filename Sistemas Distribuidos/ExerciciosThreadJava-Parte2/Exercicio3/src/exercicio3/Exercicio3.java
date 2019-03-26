@@ -9,6 +9,9 @@ mensagem. Resumindo, implementar uma comunicação em anel entre as threads
  */
 package exercicio3;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author gustavo
@@ -18,25 +21,29 @@ public class Exercicio3 {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        MinhaThread t;
-        
-        
-            for(int i=0;i<4;i++){
-                t = new MinhaThread(i,4);
-                t.start();
-                synchronized(t){
-                    try{
-                       // System.out.println("Aguardando a "+i+" completar...");
-                        t.wait();
-                    }catch(InterruptedException e){
-                        e.printStackTrace();
-                    }
+    public static void main(String[] args){
+        MinhaThread a = new MinhaThread("Primeria");
+        MinhaThread b = new MinhaThread("Segunda");
 
-                //System.out.println("Total é igual a: " + t.indentificador);
-                }
+        a.start();
+        synchronized(a){
+            try {
+                a.wait();
+            } catch (InterruptedException ex) {
+                Logger.getLogger(Exercicio3.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-    
-    
+        
+        b.start();
+        synchronized(b){
+            try {
+                b.wait();
+            } catch (InterruptedException ex) {
+                Logger.getLogger(Exercicio3.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+  
+        
+    }
+   
 }

@@ -5,51 +5,58 @@
  */
 package exercicio3;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import sun.rmi.runtime.Log;
+
 /**
  *
  * @author gustavo
  */
 
-public class MinhaThread extends Thread{
-    int indentificador = 0;
-    int indentificadorAn = 0;
+public class MinhaThread extends Thread {
+  
     String nome;
-    public MinhaThread(int indentificador, int numT){
-        this.indentificador = indentificador;
+    
+    public MinhaThread(String nome){
+        this.nome = nome;
+    }
+    
+    public synchronized void acesso(){
         
-        if(!(indentificador == 0)){
-            this.indentificadorAn = indentificador-1;
-        }else{
-            this.indentificadorAn = numT-1;
+        boolean flag = true;
+        if(flag){
+            try {
+                System.out.println(" T oi"+this.nome);
+                Thread.sleep(500);
+                notify();
+            } catch (InterruptedException ex) {
+                Logger.getLogger(MinhaThread.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            flag = false;
         }
+        if(!flag){
+            try {
+                System.out.println(" F oi"+this.nome);
+                Thread.sleep(500);
+                notify();
+            } catch (InterruptedException ex) {
+                Logger.getLogger(MinhaThread.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            flag = true;
+        }
+        //notifyAll();
+        
     }
     
     
     public void run(){
-        //System.out.println("thread: "+ this.indentificador);
-        synchronized(this){
-            if(this.indentificador == 0){
-                System.out.println("terminou "+this.indentificador);
-                System.out.println("anterior "+this.indentificadorAn);
-                //notify();
-            }
-            if(this.indentificador == 1){
-                System.out.println("terminou "+this.indentificador);
-                System.out.println("anterior "+this.indentificadorAn);
-                //notify();
-            }
-            if(this.indentificador == 2){
-                System.out.println("terminou "+this.indentificador);
-                System.out.println("anterior "+this.indentificadorAn);
-                //notify();
-            }
-            if(this.indentificador == 3){
-                System.out.println("terminou "+this.indentificador);
-                System.out.println("anterior "+this.indentificadorAn);
-                notify();
-            }
+        
+        while(true){
             
+            System.out.println("++++++++++++++++++++++++++++++++");
+            acesso();
+        
         }
     }
-    
-}
+ }
