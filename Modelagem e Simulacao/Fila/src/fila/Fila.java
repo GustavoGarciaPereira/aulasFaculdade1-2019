@@ -5,6 +5,7 @@
  */
 package fila;
 
+
 import java.util.LinkedList;
 import java.util.Random;
 
@@ -12,11 +13,14 @@ import java.util.Random;
  *
  * @author Mirkos
  */
+
 public class Fila {
-    
-    LinkedList<Cliente> clientes = 
+    static Fila filaClientes = new Fila();
+    static LinkedList<Cliente> clientes = 
             new LinkedList<Cliente>();
-    Servidor servidor = new Servidor();
+    static Servidor servidor = new Servidor();
+    static Servidor servidor2 = new Servidor();
+
     
     
     public void mostraFila(){
@@ -34,14 +38,30 @@ public class Fila {
      * SERVIÇO
      * @return 
      */
-    public int atendimentoFila(){
-        int tempoTotalAtendimento=0;
-        int tamanho = this.clientes.size();
-        for(int x=0;x<tamanho;x++){
-            Cliente cliente = this.clientes.get(x);
-            tempoTotalAtendimento+=this.servidor.atendeCliente(cliente);
+//    public int atendimentoFila(){
+//        int tempoTotalAtendimento=0;
+//        int tamanho = this.clientes.size();
+//        for(int x=0;x<tamanho;x++){
+//            Cliente cliente = this.clientes.get(x);
+//            tempoTotalAtendimento+=this.servidor.atendeCliente(cliente);
+//        }
+//        return tempoTotalAtendimento;
+//    }
+    
+    public void atendeFila(){
+        Random random = new Random();
+        System.out.println("Atendendo Fila:" );
+        for(int x=0; x<this.clientes.size(); x++){
+            if(x%4 == 0){
+                Cliente cli = new Cliente();
+                cli.setNumItens(random.nextInt(10)+1);
+                cli.setIdCliente(x+1);
+                cli.setProiridade(random.nextInt(3)+1);
+                filaClientes.clientes.add(cli);
+                System.out.println("Foi criada com sucesso!!");
+            }
+            
         }
-        return tempoTotalAtendimento;
     }
     
     /**
@@ -49,8 +69,10 @@ public class Fila {
      */
     public static void main(String[] args) {
         Random random = new Random();
-        Fila filaClientes = new Fila();
+        
         filaClientes.servidor.setVelAtendimento(2);
+        filaClientes.servidor2.setVelAtendimento(3);
+        
         System.out.println("Velocidade atendimento servidor: "+
                 filaClientes.servidor.getVelAtendimento());
         System.out.println("Clientes:");
@@ -61,7 +83,40 @@ public class Fila {
             filaClientes.clientes.add(cli);
         }
         filaClientes.mostraFila();
-        System.out.println("tempo atendimento fila: "+filaClientes.atendimentoFila()+ " segundos");
+        
+        
+        
+        for(int i=0; i < clientes.size(); i++){
+            if(servidor.tempoFila == servidor2.tempoFila){
+                //escolhe qualquer um
+                System.out.println("o ID "+clientes.get(i).getIdCliente()+" esta sendo atendido pelo servidor 1");
+                
+                servidor.atenderCliente(clientes.get(i).getIdCliente(),clientes.get(i).getNumItens());
+                System.out.println("Tempo da fila 1 atualizado: "+servidor.tempoFila);
+                
+                System.out.print("\n");
+            }
+            //se o servidor1 tem tempo menor
+            else if(servidor.tempoFila < servidor2.tempoFila){
+                //manda para o servidor 1
+                System.out.println("o ID "+clientes.get(i).getIdCliente()+" esta sendo atendido pelo servidor 1");
+                servidor.atenderCliente(clientes.get(i).getIdCliente(),clientes.get(i).getNumItens());
+                System.out.println("Tempo da fila 1 atualizado: "+servidor.tempoFila);
+        
+                System.out.print("\n");
+            }
+            //se o servidor2 tem tempo menor
+            else if(servidor2.tempoFila < servidor.tempoFila){
+                //manda para o servidor 2
+                System.out.println("o ID "+clientes.get(i).getIdCliente()+" esta sendo atendido pelo servidor 2");
+                servidor2.atenderCliente(clientes.get(i).getIdCliente(),clientes.get(i).getNumItens());
+                    System.out.println("Tempo da fila 2 atualizado: "+servidor2.tempoFila);
+        
+                    System.out.print("\n");
+            }
+        }
+        filaClientes.atendeFila();
+        //System.out.println("tempo atendimento fila: "+filaClientes.atendeFila()+ " segundos");
         
     }
     

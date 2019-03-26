@@ -13,7 +13,7 @@ public class Servidor {
     
     //característica
     private int VelAtendimento;//velocidade de atendimento
-
+    float tempoFila =0;
     /**
      * @return the VelAtendimento
      */
@@ -31,6 +31,10 @@ public class Servidor {
     //comportamento
     public int atendeCliente(Cliente cli){
         return cli.getNumItens()/this.getVelAtendimento();
+    }
+    public void atenderCliente(int idC, int nI){
+        System.out.println("Atendendo o ID:"+idC+" com o numero de item:"+nI);
+        tempoFila += (float)nI/(float)this.getVelAtendimento();
     }
     
 }
