@@ -28,28 +28,26 @@ public static void main(String[] args) {
             //stream para o recebimento de dados do servidor
             DataInputStream in = new DataInputStream(cliente.getInputStream());
             
+            //cliente envia uma string para o servidor
+            System.out.println("Valor 1:");
+            String valor1 = entrada.nextLine();
+            out.writeUTF(valor1);
             
-            while(true){
-                //cliente envia uma string para o servidor
-                System.out.println("Valor 1:");
-                String valor1 = entrada.nextLine();
-                out.writeUTF(valor1);
+            System.out.println("Operação:");
+            String opera = entrada.nextLine();
+            out.writeUTF(opera);
             
-                System.out.println("Operação:");
-                String opera = entrada.nextLine();
-                out.writeUTF(opera);
+            System.out.println("Valor2:");
+            String valor2 = entrada.nextLine();
+            out.writeUTF(valor2);
             
-                System.out.println("Valor2:");
-                String valor2 = entrada.nextLine();
-                out.writeUTF(valor2);
-                
-                //cliente espera uma resposta do servidor
-                String resposta = in.readUTF();//bloqueante
             
-                System.out.println("Resposta do servidor: "+resposta);
-                
-            }        
             
+            
+            //cliente espera uma resposta do servidor
+            String resposta = in.readUTF();//bloqueante
+            
+            System.out.println("Resposta do servidor: "+resposta);
         } catch (IOException ex) {
             System.out.println("Servidor não encontrado");
         }
